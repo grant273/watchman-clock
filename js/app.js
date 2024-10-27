@@ -25,14 +25,24 @@ const THEMES = {
   THEME_INTERSECT: {
     video: "Jerobeam Fenderson - Intersect.mp4",
   },
+
+  THEME_SPACE_INVADERS : {
+    video: "space_invaders_gameplay.mp4",
+    css: `
+      .time {
+        opacity: 60%;
+        text-shadow: #000000 1px 0 10px;
+      }
+    `
+  }
 }
 
 
 // Configurable settings
 const PAD_ZERO_HOUR = true;
 const USE_24HR_FORMAT = false;
-const CYCLE_THEMES_TIME_MINUTES = 5; // If set, randomly cycle through themes every X minutes
-const CURRENT_THEME = THEMES.THEME_GOOGOLPLEX;
+const CYCLE_THEMES_TIME_MINUTES = false; // If set, randomly cycle through themes every X minutes
+const CURRENT_THEME = THEMES.THEME_SPACE_INVADERS;
 
 
 function getFormattedTime() {
