@@ -1,5 +1,6 @@
 const THEMES = {
 
+  //Credit to Pauls Vid (https://www.youtube.com/watch?v=qIeOs3WdWvY&t=59s)
   THEME_NOISY: {
     video: "VHS_Noise.mp4",
     css: `
@@ -13,6 +14,7 @@ const THEMES = {
     img: 'vhs_color_bars.png',
   },
 
+  // Credit to Lillian Schwartz
   THEME_GOOGOLPLEX: {
     video: 'Lillian Schwartz - Googolplex.mp4',
     css: `
@@ -22,10 +24,12 @@ const THEMES = {
     `,
   },
 
+  // Credit to Jerobeam Fenderson (https://www.youtube.com/watch?v=R9jOWIhZZCE)
   THEME_INTERSECT: {
     video: "Jerobeam Fenderson - Intersect.mp4",
   },
 
+  // Credit to 316whatupz (https://www.youtube.com/watch?v=D1jZaIPeD5w)
   THEME_SPACE_INVADERS : {
     video: "space_invaders_gameplay.mp4",
     css: `
