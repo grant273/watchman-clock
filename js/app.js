@@ -40,11 +40,6 @@ const THEMES = {
     `,
   },
 
-  // Recorded by ronjamesscaresme (https://www.youtube.com/watch?v=MKqrLGFoK9E). Visuals from Windows operating system.
-  THEME_3D_PIPES: {
-    video: "3d_pipes.mp4",
-  },
-
   // Recorded by nickelindimer (https://www.youtube.com/watch?v=etZVnILnoSg). Visuals from the Atari Video Music systems
   THEME_ATARI_VIDEO_MUSIC: {
     video: 'atari_video_music.mp4',
