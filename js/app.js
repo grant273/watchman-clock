@@ -24,6 +24,36 @@ const THEMES = {
     `,
   },
 
+  // Credit to Lillian Schwartz, 1971
+  THEME_UFOS: {
+    video: "Lillian Schwartz - UFOs.mp4",
+    css: `
+      .time {
+        text-shadow: #000000 1px 0 10px;
+      }
+    `,
+  },
+
+  // Credit to Lillian Schwartz, 1973
+  THEME_APOTHESIS: {
+    video: "Lillian Schwartz - Apothesis.mp4",
+    css: `
+      .time {
+        text-shadow: #000000 1px 0 10px;
+      }
+    `,
+  },
+
+  // Credit to Lillian Schwartz, 1970
+  THEME_PIXILLATION: {
+    video: "Lillian Schwartz - Pixillation.mp4",
+    css: `
+      .time {
+        text-shadow: #000000 1px 0 10px;
+      }
+    `,
+  },
+
   // Credit to Jerobeam Fenderson (https://www.youtube.com/watch?v=R9jOWIhZZCE)
   THEME_INTERSECT: {
     video: "Jerobeam Fenderson - Intersect.mp4",
@@ -50,8 +80,8 @@ const THEMES = {
 // Configurable settings
 const PAD_ZERO_HOUR = true;
 const USE_24HR_FORMAT = false;
-const CYCLE_THEMES_TIME_MINUTES = 5; // If set, randomly cycle through themes every X minutes
-const CURRENT_THEME = THEMES.THEME_ATARI_VIDEO_MUSIC;
+const CYCLE_THEMES_TIME_MINUTES = false; // If set, randomly cycle through themes every X minutes
+const CURRENT_THEME = THEMES.THEME_APOTHESIS;
 
 
 function getFormattedTime() {
