@@ -97,3 +97,12 @@ function getRandomTheme() {
   return THEMES[randomKey];
 }
 
+const getMenuElem = () => document.getElementsByClassName("menu")[0];
+document.addEventListener("keydown", (event) => {
+  console.log(event.key);
+  const menuElem = getMenuElem();
+  if (event.key === "Escape") {
+    menuElem.hidden = !menuElem.hidden;
+  }
+});
+
