@@ -14,7 +14,7 @@ const THEMES = {
     img: 'vhs_color_bars.png',
   },
 
-  // Credit to Lillian Schwartz
+  // Credit to Lillian Schwartz, 1972
   THEME_GOOGOLPLEX: {
     video: 'Lillian Schwartz - Googolplex.mp4',
     css: `
@@ -29,7 +29,7 @@ const THEMES = {
     video: "Jerobeam Fenderson - Intersect.mp4",
   },
 
-  // Credit to 316whatupz (https://www.youtube.com/watch?v=D1jZaIPeD5w)
+  // Recorded by 316whatupz (https://www.youtube.com/watch?v=D1jZaIPeD5w)go
   THEME_SPACE_INVADERS : {
     video: "space_invaders_gameplay.mp4",
     css: `
@@ -37,7 +37,17 @@ const THEMES = {
         opacity: 60%;
         text-shadow: #000000 1px 0 10px;
       }
-    `
+    `,
+  },
+
+  // Recorded by ronjamesscaresme (https://www.youtube.com/watch?v=MKqrLGFoK9E). Visuals from Windows operating system.
+  THEME_3D_PIPES: {
+    video: "3d_pipes.mp4",
+  },
+
+  // Recorded by nickelindimer (https://www.youtube.com/watch?v=etZVnILnoSg). Visuals from the Atari Video Music systems
+  THEME_ATARI_VIDEO_MUSIC: {
+    video: 'atari_video_music.mp4',
   }
 }
 
@@ -45,8 +55,8 @@ const THEMES = {
 // Configurable settings
 const PAD_ZERO_HOUR = true;
 const USE_24HR_FORMAT = false;
-const CYCLE_THEMES_TIME_MINUTES = false; // If set, randomly cycle through themes every X minutes
-const CURRENT_THEME = THEMES.THEME_SPACE_INVADERS;
+const CYCLE_THEMES_TIME_MINUTES = 5; // If set, randomly cycle through themes every X minutes
+const CURRENT_THEME = THEMES.THEME_ATARI_VIDEO_MUSIC;
 
 
 function getFormattedTime() {
