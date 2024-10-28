@@ -80,9 +80,17 @@ const THEMES = {
 // Configurable settings
 const PAD_ZERO_HOUR = true;
 const USE_24HR_FORMAT = false;
-const CYCLE_THEMES_TIME_MINUTES = false; // If set, randomly cycle through themes every X minutes
-const CURRENT_THEME = THEMES.THEME_APOTHESIS;
+const CYCLE_THEMES_TIME_MINUTES = 5;
+// Array of themes to enable. If none, all themes are cycled
+const ENABLED_THEMES = [
+  THEMES.THEME_APOTHESIS,
+  THEMES.THEME_UFOS,
+  THEMES.THEME_PIXILLATION,
+  THEMES.THEME_ATARI_VIDEO_MUSIC,
+  THEMES.THEME_GOOGOLPLEX
+];
 
+let currentThemeIndex = 0;
 
 function getFormattedTime() {
   const now = new Date();
@@ -102,30 +110,25 @@ setInterval(function () {
   document.getElementsByClassName("time")[0].innerText = getFormattedTime();
 }, 200);
 
-setInterval(function() {
-  if (CYCLE_THEMES_TIME_MINUTES) {
-    location.reload();
-  }
-}, CYCLE_THEMES_TIME_MINUTES * 60 * 1000);
 
+if (CYCLE_THEMES_TIME_MINUTES) {
+  setInterval(function () {
+    loadTheme(getNextTheme());
+  }, CYCLE_THEMES_TIME_MINUTES * 60 * 1000);
+}
+
+
+function getNextTheme() {
+  const themes = ENABLED_THEMES ?? Object.values(THEMES);
+  const theme = ENABLED_THEMES[currentThemeIndex];
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+  return theme;
+}
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementsByTagName("head")[0].innerHTML += `<style>${CURRENT_THEME.css}</style>`;
-  const theme = CYCLE_THEMES_TIME_MINUTES ? getRandomTheme() : CURRENT_THEME;
-  let bg;
-  if (theme.video) {
-    bg = `<video class="bg" src="/img/${theme.video}" loop muted autoplay></video>`
-  } else {
-    bg = `<img class="bg" src="/img/${theme.img}"  alt="background"/>`;
-  }
-  document.getElementsByClassName("border")[0].innerHTML += bg;
+  loadTheme(getNextTheme());
 });
 
-function getRandomTheme() {
-  const keys = Object.keys(THEMES);
-  const randomKey = keys[Math.floor(Math.random() * keys.length)];
-  return THEMES[randomKey];
-}
 
 const getMenuElem = () => document.getElementsByClassName("menu")[0];
 document.addEventListener("keydown", (event) => {
@@ -136,3 +139,25 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+
+function loadTheme(theme) {
+  const existingBg = document.getElementsByClassName("bg") ? document.getElementsByClassName("bg")[0] : null;
+  if (existingBg) {
+    existingBg.remove();
+  }
+  const existingStyles = document.getElementById('theme-css');
+  if (existingStyles) {
+    existingStyles.remove();
+  }
+
+  if (theme.video) {
+    bg = `<video class="bg" src="/img/${theme.video}" loop muted autoplay></video>`
+  } else {
+    bg = `<img class="bg" src="/img/${theme.img}"  alt="background"/>`;
+  }
+  document.getElementsByClassName("border")[0].innerHTML += bg;
+
+  if (theme.css) {
+    document.getElementsByTagName("head")[0].innerHTML += `<style id="theme-css">${theme.css}</style>`;
+  }
+}
