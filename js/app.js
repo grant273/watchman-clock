@@ -60,7 +60,7 @@ const THEMES = {
   },
 
   // Recorded by 316whatupz (https://www.youtube.com/watch?v=D1jZaIPeD5w)go
-  THEME_SPACE_INVADERS : {
+  THEME_SPACE_INVADERS: {
     video: "space_invaders_gameplay.mp4",
     css: `
       .time {
@@ -80,14 +80,13 @@ const THEMES = {
 // Configurable settings
 const PAD_ZERO_HOUR = true;
 const USE_24HR_FORMAT = false;
-const CYCLE_THEMES_TIME_MINUTES = 5;
 // Array of themes to enable. If none, all themes are cycled
 const ENABLED_THEMES = [
   THEMES.THEME_APOTHESIS,
   THEMES.THEME_UFOS,
   THEMES.THEME_PIXILLATION,
   THEMES.THEME_ATARI_VIDEO_MUSIC,
-  THEMES.THEME_GOOGOLPLEX
+  THEMES.THEME_GOOGOLPLEX,
 ];
 
 let currentThemeIndex = 0;
@@ -110,14 +109,6 @@ setInterval(function () {
   document.getElementsByClassName("time")[0].innerText = getFormattedTime();
 }, 200);
 
-
-if (CYCLE_THEMES_TIME_MINUTES) {
-  setInterval(function () {
-    loadTheme(getNextTheme());
-  }, CYCLE_THEMES_TIME_MINUTES * 60 * 1000);
-}
-
-
 function getNextTheme() {
   const themes = ENABLED_THEMES ?? Object.values(THEMES);
   const theme = ENABLED_THEMES[currentThemeIndex];
@@ -139,7 +130,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-
 function loadTheme(theme) {
   const existingBg = document.getElementsByClassName("bg") ? document.getElementsByClassName("bg")[0] : null;
   if (existingBg) {
@@ -151,11 +141,21 @@ function loadTheme(theme) {
   }
 
   if (theme.video) {
-    bg = `<video class="bg" src="/img/${theme.video}" loop muted autoplay></video>`
+    const bg = `<video class="bg" src="/img/${theme.video}" muted autoplay></video>`
+    document.getElementsByClassName("border")[0].innerHTML += bg;
+    document.getElementsByTagName("video")[0].addEventListener("ended", (event) => {
+      console.log(`Video ${theme.video} played 5 minutes. Playing next`)
+      loadTheme(getNextTheme());
+    });
   } else {
-    bg = `<img class="bg" src="/img/${theme.img}"  alt="background"/>`;
+    const bg = `<img class="bg" src="/img/${theme.img}"  alt="background"/>`;
+    document.getElementsByClassName("border")[0].innerHTML += bg;
+    // images don't have durations - change after 3 minutes
+    window.setTimeout(function () {
+      console.log(`Image ${theme.img} played 3 minutes. Playing next`)
+      loadTheme(getNextTheme());
+    }, 3000);
   }
-  document.getElementsByClassName("border")[0].innerHTML += bg;
 
   if (theme.css) {
     document.getElementsByTagName("head")[0].innerHTML += `<style id="theme-css">${theme.css}</style>`;
