@@ -9,7 +9,7 @@ const THEMES = {
       }
     `,
   },
-
+  // Credit to Lillian Schwartz & Ken Knowlton, 1971
   THEME_OLYMPIAD: {
     video: 'Lillian Schwartz - Olympiad.mp4',
     css: `
@@ -19,6 +19,7 @@ const THEMES = {
     `,
   },
 
+  // Credit to Robert Darroll, 1988
   THEME_FENG_HUANG: {
     video: "Robert Darroll - Feng Huang.mp4",
     css: `
@@ -32,7 +33,7 @@ const THEMES = {
     img: 'vhs_color_bars.png',
   },
 
-  // Credit to Lillian Schwartz, 1972
+  // Credit to Lillian Schwartz & Ken Knowlton, 1972
   THEME_GOOGOLPLEX: {
     video: 'Lillian Schwartz - Googolplex.mp4',
     css: `
@@ -42,7 +43,7 @@ const THEMES = {
     `,
   },
 
-  // Credit to Lillian Schwartz, 1971
+  // Credit to Lillian Schwartz & Ken Knowlton, 1971
   THEME_UFOS: {
     video: "Lillian Schwartz - UFOs.mp4",
     css: `
@@ -52,9 +53,9 @@ const THEMES = {
     `,
   },
 
-  // Credit to Lillian Schwartz, 1973
-  THEME_APOTHESIS: {
-    video: "Lillian Schwartz - Apothesis.mp4",
+  // Credit to Lillian Schwartz & Ken Knowlton, 1973
+  THEME_APOTHEOSIS: {
+    video: "Lillian Schwartz - Apotheosis.mp4",
     css: `
       .time {
         text-shadow: #000000 1px 0 10px;
@@ -102,7 +103,7 @@ const USE_24HR_FORMAT = false;
 const ENABLED_THEMES = [
   THEMES.THEME_OLYMPIAD,
   THEMES.THEME_FENG_HUANG,
-  THEMES.THEME_APOTHESIS,
+  THEMES.THEME_APOTHEOSIS,
   THEMES.THEME_UFOS,
   THEMES.THEME_PIXILLATION,
   THEMES.THEME_ATARI_VIDEO_MUSIC,
