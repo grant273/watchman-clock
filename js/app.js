@@ -10,6 +10,15 @@ const THEMES = {
     `,
   },
 
+  THEME_OLYMPIAD: {
+    video: 'Lillian Schwartz - Olympiad.mp4',
+    css: `
+      .time {
+        text-shadow: #000000 1px 0 10px;
+      }
+    `,
+  },
+
   THEME_FENG_HUANG: {
     video: "Robert Darroll - Feng Huang.mp4",
     css: `
@@ -91,6 +100,7 @@ const PAD_ZERO_HOUR = true;
 const USE_24HR_FORMAT = false;
 // Array of themes to enable. If none, all themes are cycled
 const ENABLED_THEMES = [
+  THEMES.THEME_OLYMPIAD,
   THEMES.THEME_FENG_HUANG,
   THEMES.THEME_APOTHESIS,
   THEMES.THEME_UFOS,
