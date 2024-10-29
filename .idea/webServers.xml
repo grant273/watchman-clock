@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1a7acf53-4bba-4a91-8076-a68a167d3310" name="Pi">
+        <fileTransfer rootFolder="/home/pi/watchman-clock" accessType="SFTP" host="192.168.0.22" port="22" sshConfigId="4cdf18d2-d798-4c25-beb0-c40e5cea1826" sshConfig="pi@192.168.0.22:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseRsync="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

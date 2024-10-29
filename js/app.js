@@ -10,6 +10,15 @@ const THEMES = {
     `,
   },
 
+  THEME_FENG_HUANG: {
+    video: "Robert Darroll - Feng Huang.mp4",
+    css: `
+      .time {
+        color: white;
+      }
+    `,
+  },
+
   THEME_COLOR_BARS: {
     img: 'vhs_color_bars.png',
   },
@@ -82,6 +91,7 @@ const PAD_ZERO_HOUR = true;
 const USE_24HR_FORMAT = false;
 // Array of themes to enable. If none, all themes are cycled
 const ENABLED_THEMES = [
+  THEMES.THEME_FENG_HUANG,
   THEMES.THEME_APOTHESIS,
   THEMES.THEME_UFOS,
   THEMES.THEME_PIXILLATION,
