@@ -14,7 +14,7 @@ const THEMES = {
     video: "Robert Darroll - Feng Huang.mp4",
     css: `
       .time {
-        color: white;
+        text-shadow: #000000 1px 0 10px;
       }
     `,
   },
