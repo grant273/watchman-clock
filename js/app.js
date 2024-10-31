@@ -112,6 +112,10 @@ const ENABLED_THEMES = [
 
 let currentThemeIndex = 0;
 
+const date = new Date();
+
+console.log(`Page started at ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`);
+
 function getFormattedTime() {
   const now = new Date();
   let hours = now.getHours();
@@ -143,6 +147,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const getMenuElem = () => document.getElementsByClassName("menu")[0];
+const getVideoElem = () => document.getElementsByTagName("video")[0];
+
 document.addEventListener("keydown", (event) => {
   console.log(event.key);
   const menuElem = getMenuElem();
@@ -168,6 +174,9 @@ function loadTheme(theme) {
       console.log(`Video ${theme.video} played 5 minutes. Playing next`)
       loadTheme(getNextTheme());
     });
+    document.getElementsByTagName("video")[0].onerror = () => {
+      console.error(`Error ${video.error.code}; details: ${video.error.message}`);
+    }
   } else {
     const bg = `<img class="bg" src="/img/${theme.img}"  alt="background"/>`;
     document.getElementsByClassName("border")[0].innerHTML += bg;
