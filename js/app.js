@@ -130,6 +130,14 @@ function getFormattedTime() {
   return `${hoursStr}:${minutes}`;
 }
 
+
+// Video occasionally pauses sometimes. Quick fix.
+setInterval(function() {
+  if (getVideoElem().paused === true) {
+    location.reload();
+  }
+}, 1000);
+
 setInterval(function () {
   document.getElementsByClassName("time")[0].innerText = getFormattedTime();
 }, 200);
@@ -171,7 +179,6 @@ function loadTheme(theme) {
     const bg = `<video class="bg" src="/img/${theme.video}" muted autoplay></video>`
     document.getElementsByClassName("border")[0].innerHTML += bg;
     document.getElementsByTagName("video")[0].addEventListener("ended", (event) => {
-      console.log(`Video ${theme.video} played 5 minutes. Playing next`)
       loadTheme(getNextTheme());
     });
     document.getElementsByTagName("video")[0].onerror = () => {
@@ -182,7 +189,6 @@ function loadTheme(theme) {
     document.getElementsByClassName("border")[0].innerHTML += bg;
     // images don't have durations - change after 3 minutes
     window.setTimeout(function () {
-      console.log(`Image ${theme.img} played 3 minutes. Playing next`)
       loadTheme(getNextTheme());
     }, 3000);
   }
