@@ -131,12 +131,18 @@ function getFormattedTime() {
 }
 
 
-// Video occasionally pauses sometimes. Quick fix.
+// Video occasionally pauses sometimes. Quick fix if paused for 10 seconds or more
+let videoPaused = false;
 setInterval(function() {
   if (getVideoElem().paused === true) {
-    location.reload();
+    if (videoPaused) {
+      location.reload();
+    }
+    videoPaused = true;
+  } else {
+    videoPaused = false;
   }
-}, 1000);
+}, 10000);
 
 setInterval(function () {
   document.getElementsByClassName("time")[0].innerText = getFormattedTime();
