@@ -138,6 +138,7 @@ setInterval(function() {
     if (videoPaused) {
       location.reload();
     }
+    getVideoElem().play();
     videoPaused = true;
   } else {
     videoPaused = false;
