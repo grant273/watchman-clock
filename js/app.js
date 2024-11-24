@@ -131,19 +131,11 @@ function getFormattedTime() {
 }
 
 
-// Video occasionally pauses sometimes. Quick fix if paused for 10 seconds or more
-let videoPaused = false;
+
+// refresh every two hours. Something causes the video to stop playing sometimes
 setInterval(function() {
-  if (getVideoElem().paused === true) {
-    if (videoPaused) {
-      location.reload();
-    }
-    getVideoElem().play();
-    videoPaused = true;
-  } else {
-    videoPaused = false;
-  }
-}, 10000);
+  location.reload()
+}, 1000*60*60*2)
 
 setInterval(function () {
   document.getElementsByClassName("time")[0].innerText = getFormattedTime();
