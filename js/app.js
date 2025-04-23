@@ -196,3 +196,25 @@ function loadTheme(theme) {
     document.getElementsByTagName("head")[0].innerHTML += `<style id="theme-css">${theme.css}</style>`;
   }
 }
+
+function toggleFullscreen() {
+  let elem = document.querySelector("body");
+
+  if (!document.fullscreenElement) {
+    elem.requestFullscreen().catch((err) => {
+      alert(
+        `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`,
+      );
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+
+setTimeout(() => {
+  document.querySelector("video").onclick = function () {
+    toggleFullscreen();
+  }
+}, 1000)
+
