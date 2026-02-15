@@ -175,7 +175,7 @@ function loadTheme(theme) {
   }
 
   if (theme.video) {
-    const bg = `<video class="bg" src="/img/${theme.video}" muted autoplay></video>`
+    const bg = `<video class="bg" src="img/${theme.video}" muted autoplay></video>`
     document.getElementsByClassName("border")[0].innerHTML += bg;
     document.getElementsByTagName("video")[0].addEventListener("ended", (event) => {
       loadTheme(getNextTheme());
@@ -184,7 +184,7 @@ function loadTheme(theme) {
       console.error(`Error ${video.error.code}; details: ${video.error.message}`);
     }
   } else {
-    const bg = `<img class="bg" src="/img/${theme.img}"  alt="background"/>`;
+    const bg = `<img class="bg" src="img/${theme.img}"  alt="background"/>`;
     document.getElementsByClassName("border")[0].innerHTML += bg;
     // images don't have durations - change after 3 minutes
     window.setTimeout(function () {
